@@ -13,26 +13,31 @@
 <body>
     <div class=".container-fluid">
         <div class="row">
-            <div class="col-md-2" style="background-color: #DDD">
-                <h1>slideside</h1>
-                <div class="col-md-1">
+            <div class="col-md-2" >
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <h1>IvoryTower</h1>
                 </div>
-                <div class="col-md-11">
-                    <div class="nav nav-pills nav-stacked">
-                        <li role="presentation" class="active"><a href="#">Home</a></li>
-                        <li role="presentation"><a href="#">Profile</a></li>
-                        <li role="presentation"><a href="#">Messages</a></li>
-                    </div>
-                </div>
+                <!--<div class="col-md-3"></div>-->
             </div>
-            <div class="col-md-10">
-                <h1>content</h1>
-                    {% block content %}
-                    {% endblock %}
-            </div>
+            <!--<div class="col-md-10"></div>-->
         </div>
     </div>
-
+    <div class=".container-fluid">
+        <div class="row">
+            <div class="col-md-2" ></div>
+            <div class="col-md-8">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="/">Home</a></li>
+                    <li role="presentation"><a href="">Blog</a></li>
+                    <!--<li role="presentation"><a href="#">Messages</a></li>-->
+                </ul>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap 核心 JavaScript 文件 -->
