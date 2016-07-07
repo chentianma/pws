@@ -19,4 +19,7 @@ from .views import blogHome
 
 urlpatterns = [
     url(r'^$', 'blog.views.blogHome'),
+    url(r'^index/$', 'blog.views.blogIndex'),
+    url(r'^about/', 'blog.views.blogAbout'),
+    url(r'^message/', 'blog.views.blogMessage'),
 ]
