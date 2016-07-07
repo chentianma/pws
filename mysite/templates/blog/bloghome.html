@@ -7,24 +7,27 @@
 <div class=".container-fluid">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            <!--文章展示版块-->
             <div class="col-md-9">
+                {% for article in articles %}
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3>使用PyCharm进行远程开发和调试</h3>
+                        <h3>{{ articles.title }}</h3>
                     </div>
-                    <p class="panel-body">你是否经常要在Windows 7或MAC OS X上面开发Python或Web应用程序，但是它们最后需要在linux上面来运行呢？ 我们经常会碰到开发时没有问题但是到了正式的Linux环境下面却出现问题。那么怎样保证开发环境跟运行环境的一致呢？
-
-通常有两种方法解决。一种是使用PyCharm内置支持的Vagrant，这个教程可以参考Vagrant开发环境配置。 不过很遗憾的是我自己在试验过程中启动VirtualBox虚拟机时候老是报错，暂时还没解决，读者可以自己试着测试看行不行。 第二种方式就是通过PyCharm的远程解释器加上文件同步功能，实现本地编辑代码->同步到服务器->通过远程debug来调试测试程序。目前我选择的是第二种，虽然比第一种更笨拙点。</p>
+                    <div>
+                        <h6>{{ post.created_date }}</h6>
+                        <!--<h6>{{ articles.publish_date }}</h6>-->
+                        <h6>{{ articles.catagory }}</h6>
+                    </div>
+                    <div>
+                        <p class="panel-body">{{ articles.text }}</p>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
             <div class="col-md-3" role="complementary">
                 <div class="sidebar">
                     <div class="widget">
-                        <h3>pass</h3>
-                        <h3>pass</h3>
-                        <h3>pass</h3>
-                        <h3>pass</h3>
-                        <h3>pass</h3>
                         <h3>pass</h3>
                         <h3>pass</h3>
                     </div>
