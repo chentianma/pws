@@ -12,15 +12,13 @@
                 {% for article in articles %}
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3>{{ articles.title }}</h3>
+                        <h3><strong>{{ article.title }}</strong></h3>
+                        <div>
+                            <h5><strong>发表时间：</strong> {{ article.publish_date }}   <strong>分类：</strong>{{ article.category }}</h5>
+                        </div>
                     </div>
                     <div>
-                        <h6>{{ post.created_date }}</h6>
-                        <!--<h6>{{ articles.publish_date }}</h6>-->
-                        <h6>{{ articles.catagory }}</h6>
-                    </div>
-                    <div>
-                        <p class="panel-body">{{ articles.text }}</p>
+                        <p class="panel-body">{{ article.text }}</p>
                     </div>
                 </div>
                 {% endfor %}
