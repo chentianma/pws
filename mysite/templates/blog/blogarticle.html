@@ -6,20 +6,18 @@
 {% block content %}
 <!--文章展示版块-->
 <div class="col-md-9">
-    {% for article in articles %}
     <div class="">
         <div class="page-header">
-            <h3 style="font-family: 微软雅黑"><a href="{% url 'blog.views.blogArticle' pk=article.pk %}"><strong>{{ article.title }}</strong></a></h3>
+            <h1 style="font-family: 微软雅黑">{{ article.title }}</h1></br>
             <div style="font-family:cursive">
                 <h5><small>分类：</small>{{ article.category }}</h5>
                 <h5><small>发表时间：</small> {{ article.publish_date }}</h5>
             </div>
         </div>
         <div>
-            <p>{{ article.text|linebreaks|truncatechars:200 }}</p>
+            <p>{{ article.text|linebreaks }}</p>
         </div>
     </div>
-    {% endfor %}
 </div>
 <div class="col-md-3" role="complementary">
     <div class="sidebar">
