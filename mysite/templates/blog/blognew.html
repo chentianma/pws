@@ -3,19 +3,20 @@
 {% block content %}
     <h5 align="center">New</h5>
     <form method="POST" class="post-form">{% csrf_token %}
+        <!--{{ form.as_p }}-->
         <div class="input-group">
             <h7><strong>Title</strong></h7>
-            <input type="text" name="title" class="form-control" placeholder="Title" aria-describedby="basic-addon1">
+            <input id="id_title" type="text" name="title" class="form-control" placeholder="Title" aria-describedby="basic-addon1">
         </div>
         </br>
         <div>
             <h7><strong>Text</strong></h7>
-            <textarea name="text" class="form-control" rows="10"></textarea>
+            <textarea id="id_text" name="text" class="form-control" rows="10"></textarea>
         </div>
         </br>
         <div>
             <h7><strong>Category</strong></h7>
-            <select name="category" class="form-control">
+            <select id="id_category" name="category" class="form-control">
                 {% for c in categorys %}
                 <option>{{ c }}</option>
                 {% endfor %}
@@ -27,7 +28,7 @@
             </br>
             {% for t in tags %}
             <label class="checkbox-inline">
-            <input name="tags" type="checkbox" id="inlineCheckbox1" value="option1"> {{ t }}
+            <input name="tags" type="checkbox" id="id_tags" value="option1"> {{ t }}
             </label>
             {% endfor %}
         </div>
