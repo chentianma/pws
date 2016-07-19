@@ -20,7 +20,8 @@ from .views import blogHome
 urlpatterns = [
     url(r'^$', 'blog.views.blogHome'),
     url(r'^index/$', 'blog.views.blogIndex'),
-    url(r'^about/', 'blog.views.blogAbout'),
-    url(r'^message/', 'blog.views.blogMessage'),
+    url(r'^about/$', 'blog.views.blogAbout'),
+    url(r'^message/$', 'blog.views.blogMessage'),
     url(r'^article/(?P<pk>[0-9]+)/$', 'blog.views.blogArticle'),
+    url(r'^new/$', 'blog.views.blogNew'),
 ]
