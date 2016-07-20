@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^message/$', 'blog.views.blogMessage'),
     url(r'^article/(?P<pk>[0-9]+)/$', 'blog.views.blogArticle'),
     url(r'^new/$', 'blog.views.blogNew'),
+    url(r'^article/(?P<pk>[0-9]+)/edit/$', 'blog.views.blogEdit', name='article_edit'),
 ]

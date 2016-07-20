@@ -40,3 +40,20 @@ def blogNew(request):
     else:
         form = postForm()
     return render(request, 'blog/blognew.html', {'form': form, 'categorys': categorys, 'tags': tags})
+
+
+def blogEdit(request, pk):
+    categorys = Category.objects.filter()
+    tags = Tag.objects.filter()
+    post = get_object_or_404(Article, pk=pk)
+    if request.method == 'POST':
+        form = postForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            print(post)
+            post.author = request.user
+            post.save()
+            return redirect('blog.views.blogArticle', pk=post.pk)
+    else:
+        form = postForm(instance=post)
+    return render(request, 'blog/blognew.html', {'form': form, 'categorys': categorys, 'tags': tags})

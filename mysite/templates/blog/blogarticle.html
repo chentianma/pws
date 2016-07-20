@@ -13,6 +13,8 @@
         <i class="glyphicon glyphicon-user"></i> 关于</a></li>
     <li role="presentation"><a href="/blog/message">
         <i class="glyphicon glyphicon-list-alt"></i> 留言板</a></li>
+    <li role="presentation"><a href="/blog/new">
+        <i class="glyphicon glyphicon-plus"></i></a></li>
 </ul>
 {% endblock %}
 
@@ -21,7 +23,10 @@
 <div class="col-md-8">
     <div class="">
         <div class="page-header">
-            <h5 style="font-family: 微软雅黑" align="center">{{ article.title }}</h5></br>
+            <h5 style="font-family: 微软雅黑" align="center">{{ article.title }}
+            <a class="btn button" href="{% url 'article_edit' pk=article.pk%}">
+                <span class="glyphicon glyphicon-edit"></span>
+            </a></h5>
             <div style="font-family:cursive">
                 <h7><small>分类：{{ article.category }}</small></h7></br>
                 <h7><small>发表时间：{{ article.publish_date }}</small></h7>
