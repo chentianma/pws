@@ -24,7 +24,7 @@
     {% for article in articles %}
     <div class="">
         <div class="page-header">
-            <h6 style="font-family: 微软雅黑"><a href="{% url 'blog.views.blogArticle' pk=article.pk %}">{{ article.title }}</a></h6>
+            <h6 style="font-family: 微软雅黑"><a href="{% url 'article' pk=article.pk %}">{{ article.title }}</a></h6>
             <div style="font-family:cursive">
                 <h7><small>分类：{{ article.category }}</small></h7></br>
                 <h7><small>发表时间：{{ article.publish_date }}</small></h7>

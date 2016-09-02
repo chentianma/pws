@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from .views import blogHome
+from . import views
 
 urlpatterns = [
-    url(r'^$', 'blog.views.blogHome'),
-    url(r'^index/$', 'blog.views.blogIndex'),
-    url(r'^about/$', 'blog.views.blogAbout'),
-    url(r'^message/$', 'blog.views.blogMessage'),
-    url(r'^article/(?P<pk>[0-9]+)/$', 'blog.views.blogArticle'),
-    url(r'^new/$', 'blog.views.blogNew'),
-    url(r'^article/(?P<pk>[0-9]+)/edit/$', 'blog.views.blogEdit', name='article_edit'),
+    url(r'^$', views.blogHome),
+    url(r'^index/$', views.blogIndex),
+    url(r'^about/$', views.blogAbout),
+    url(r'^message/$', views.blogMessage),
+    url(r'^article/(?P<pk>[0-9]+)/$', views.blogArticle, name='article'),
+    url(r'^new/$', views.blogNew),
+    url(r'^article/(?P<pk>[0-9]+)/edit/$', views.blogEdit, name='article_edit'),
 ]
