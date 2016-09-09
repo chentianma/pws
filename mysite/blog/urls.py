@@ -24,5 +24,5 @@ urlpatterns = [
     url(r'^message/$', views.blogMessage),
     url(r'^article/(?P<pk>[0-9]+)/$', views.blogArticle, name='article'),
     url(r'^new/$', views.blogNew),
-    url(r'^article/(?P<pk>[0-9]+)/edit/$', views.blogEdit, name='article_edit'),
+    url(r'^article/edit/(?P<pk>[0-9]+)/$', views.blogEdit, name='article_edit'),
 ]
