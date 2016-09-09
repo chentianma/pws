@@ -3,41 +3,33 @@
 {% block title%}
 {% endblock %}
 
-{% block nav-tabs %}
-<ul class="nav nav-tabs">
-    <li role="presentation" class="active"><a href="/blog">
-        <span class="glyphicon glyphicon-home"></span> 首页</a></li>
-    <li role="presentation"><a href="/blog/index">
-        <i class="glyphicon glyphicon-th-list"></i> 索引</a></li>
-    <li role="presentation"><a href="/blog/about">
-        <i class="glyphicon glyphicon-user"></i> 关于</a></li>
-    <li role="presentation"><a href="/blog/message">
-        <i class="glyphicon glyphicon-list-alt"></i> 留言板</a></li>
-    <li role="presentation"><a href="/blog/new">
-        <i class="glyphicon glyphicon-plus"></i></a></li>
-</ul>
-{% endblock %}
 
 {% block content %}
 <!--文章展示版块-->
 <div class="col-md-8">
     {% for article in articles %}
-    <div class="">
-        <div class="page-header">
+    <div class="panel panel-default">
+        <div class="panel-heading">
             <h6 style="font-family: 微软雅黑"><a href="{% url 'article' pk=article.pk %}">{{ article.title }}</a></h6>
-            <div style="font-family:cursive">
-                <h7><small>分类：{{ article.category }}</small></h7></br>
-                <h7><small>发表时间：{{ article.publish_date }}</small></h7>
-            </div>
+                    <div>
+            <h7>
+                <small>分类：{{ article.category }}</small>
+            </h7>
+
+            <h7>
+                <small>发表时间：{{ article.publish_date }}</small>
+            </h7>
         </div>
-        <div class="well well-sm">
+        </div>
+
+        <div class="panel-body">
             <p>{{ article.text|linebreaks|truncatechars:200 }}</p>
         </div>
     </div>
     {% endfor %}
 </div>
 <!--侧边栏-->
-<div class="col-md-4" >
+<div class="col-md-4">
     </br>
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-success">

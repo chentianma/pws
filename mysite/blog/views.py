@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Article, Category, Tag
 from .forms import postForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -26,6 +27,8 @@ def blogArticle(request, pk):
     article = get_object_or_404(Article, pk=pk)
     return render(request, 'blog/blogarticle.html', {'article': article})
 
+
+@login_required
 def blogNew(request):
     categorys = Category.objects.filter()
     tags = Tag.objects.filter()
@@ -42,6 +45,7 @@ def blogNew(request):
     return render(request, 'blog/blognew.html', {'form': form, 'categorys': categorys, 'tags': tags})
 
 
+@login_required
 def blogEdit(request, pk):
     categorys = Category.objects.filter()
     tags = Tag.objects.filter()

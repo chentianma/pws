@@ -1,50 +1,40 @@
 {% extends 'blog/blogbase.html' %}
 
 
-{% block nav-tabs %}
-<ul class="nav nav-tabs">
-    <li role="presentation"><a href="/blog">
-        <span class="glyphicon glyphicon-home"></span> 首页</a></li>
-    <li role="presentation"><a href="/blog/index">
-        <i class="glyphicon glyphicon-th-list"></i> 索引</a></li>
-    <li role="presentation"><a href="/blog/about">
-        <i class="glyphicon glyphicon-user"></i> 关于</a></li>
-    <li role="presentation"><a href="/blog/message">
-        <i class="glyphicon glyphicon-list-alt"></i> 留言板</a></li>
-    <li role="presentation" class="active"><a href="/blog/new">
-        <i class="glyphicon glyphicon-plus"></i></a></li>
-</ul>
-{% endblock %}
+
 
 
 {% block content %}
     <h5 align="center">Edit</h5>
-    <form method="POST" class="post-form">{% csrf_token %}
+    <form method="POST" class="post-form" name="new">{% csrf_token %}
         {{ form.as_p }}
-        <!--&lt;!&ndash;<p class="input-group">&ndash;&gt;-->
+        <!--<p class="input-group">-->
             <!--<h7><strong>Title</strong></h7>-->
-            <!--<input id="id_title" type="text" name="title" class="form-control" placeholder="Title" aria-describedby="basic-addon1">-->
+            <!--<label for="id_title">-->
+            <!--<input id="id_title" type="text" name="title" class="form-control" placeholder="Title" aria-describedby="basic-addon1"></label>-->
         <!--</p>-->
         <!--</br>-->
         <!--<p>-->
             <!--<h7><strong>Text</strong></h7>-->
-            <!--<textarea id="id_text" name="text" class="form-control" rows="10"></textarea>-->
+            <!--<label for="id_text">-->
+            <!--<textarea id="id_text" name="text" class="form-control" rows="10"></textarea></label>-->
         <!--</p>-->
         <!--</br>-->
         <!--<p>-->
             <!--<h7><strong>Category</strong></h7>-->
+            <!--<label for="id_category">-->
             <!--<select id="id_category" name="category" class="form-control">-->
                 <!--{% for c in categorys %}-->
                 <!--<option>{{ c }}</option>-->
                 <!--{% endfor %}-->
-            <!--</select>-->
+            <!--</select></label>-->
         <!--</p>-->
         <!--</br>-->
         <!--<p>-->
-            <!--<h7><strong>Tags</strong></h7>-->
+            <!--<h7><strong>Tags</strong></h禅道7>-->
             <!--</br>-->
             <!--{% for t in tags %}-->
-            <!--<label class="checkbox-inline">-->
+            <!--<label for="id_tags" class="checkbox-inline">-->
             <!--<input name="tags" type="checkbox" id="id_tags" value="option1"> {{ t }}-->
             <!--</label>-->
             <!--{% endfor %}-->
