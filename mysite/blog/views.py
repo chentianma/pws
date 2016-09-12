@@ -39,7 +39,7 @@ def blogNew(request):
             print(post)
             post.author = request.user
             post.save()
-            return redirect('blog.views.blogArticle', pk=post.pk)
+            return redirect('article', pk=post.pk)
     else:
         form = postForm()
     return render(request, 'blog/blognew.html', {'form': form, 'categorys': categorys, 'tags': tags})
@@ -57,7 +57,7 @@ def blogEdit(request, pk):
             print(post)
             post.author = request.user
             post.save()
-            return redirect('blog.views.blogArticle', pk=post.pk)
+            return redirect('article', pk=post.pk)
     else:
         form = postForm(instance=post)
     return render(request, 'blog/blognew.html', {'form': form, 'categorys': categorys, 'tags': tags})
