@@ -13,9 +13,8 @@ def blogHome(request):
 
 def blogIndex(request):
     categorys = Category.objects.all()
-    for c in categorys:
-        print(c)
-    return render(request, 'blog/blogindex.html', {'categorys': categorys})
+    article = Article.objects.all()
+    return render(request, 'blog/blogindex.html', {'categorys': categorys, 'article': article})
 
 
 def blogAbout(request):
@@ -28,6 +27,9 @@ def blogMessage(request):
 
 def blogArticle(request, pk):
     article = get_object_or_404(Article, pk=pk)
+    article.click += 1
+    article.save()
+    print('{0}(click_number):{1}'.format(article.title, article.click))
     return render(request, 'blog/blogarticle.html', {'article': article})
 
 
