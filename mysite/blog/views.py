@@ -12,7 +12,10 @@ def blogHome(request):
 
 
 def blogIndex(request):
-    return render(request, 'blog/blogindex.html')
+    categorys = Category.objects.all()
+    for c in categorys:
+        print(c)
+    return render(request, 'blog/blogindex.html', {'categorys': categorys})
 
 
 def blogAbout(request):
