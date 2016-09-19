@@ -7,13 +7,13 @@ from django.contrib.auth.decorators import login_required
 
 
 def blogHome(request):
-    articles = Article.objects.filter(publish_date__isnull=False).order_by('-created_date')
+    articles = Article.objects.filter(publish_date__isnull=False).order_by('-publish_date')
     return render(request, 'blog/bloghome.html', {'articles': articles})
 
 
 def blogIndex(request):
     categorys = Category.objects.all()
-    article = Article.objects.all()
+    article = Article.objects.filter(publish_date__isnull=False)
     return render(request, 'blog/blogindex.html', {'categorys': categorys, 'article': article})
 
 
@@ -29,7 +29,7 @@ def blogArticle(request, pk):
     article = get_object_or_404(Article, pk=pk)
     article.click += 1
     article.save()
-    print('{0}(click_number):{1}'.format(article.title, article.click))
+    # print('{0}(click_number):{1}'.format(article.title, article.click))
     return render(request, 'blog/blogarticle.html', {'article': article})
 
 
