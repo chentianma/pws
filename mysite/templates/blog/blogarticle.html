@@ -4,25 +4,28 @@
 {% endblock %}
 
 
-
-
 {% block content %}
 <!--文章展示版块-->
 <div class="col-md-9" style="background-color: #ffffff">
     <div class="">
         <div class="page-header">
             <h3 align="center">{{ article.title }}
-            {% if user.is_authenticated %}
-            <a class="btn button" href="{% url 'article_edit' pk=article.pk %}">
-                <span class="glyphicon glyphicon-edit"></span>
-            </a>
-            {% endif %}
+                {% if user.is_authenticated %}
+                <a class="btn button" href="{% url 'article_edit' pk=article.pk %}">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </a>
+                {% endif %}
             </h3>
             <br>
-                <h5 align="right">分类：{{ article.category }}&nbsp;&nbsp;&nbsp;&nbsp;发表时间：{{ article.publish_date }}&nbsp;&nbsp;&nbsp;&nbsp;浏览量：{{ article.click }}</h5>
+            <h5 align="right">分类：{{ article.category }}&nbsp;&nbsp;&nbsp;&nbsp;发表时间：{{ article.publish_date }}&nbsp;&nbsp;&nbsp;&nbsp;浏览量：{{
+                article.click }}</h5>
         </div>
         <div>
-            <p>{{ article.text|linebreaks }}</p>
+            <p>
+                {% autoescape off %}
+                {{ article.text|linebreaks }}
+                {% endautoescape %}
+            </p>
         </div>
     </div>
 </div>

@@ -1,45 +1,54 @@
 {% extends 'blog/blogbase.html' %}
+{% load staticfiles %}
 
 
 
+{% block head %}
+<script src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea'
+    });
+</script>
+{% endblock %}
 
 
 {% block content %}
-    <h5 align="center">Edit</h5>
-    <form method="POST" class="post-form" name="new">{% csrf_token %}
-        {{ form.as_p }}
-        <!--<p class="input-group">-->
-            <!--<h7><strong>Title</strong></h7>-->
-            <!--<label for="id_title">-->
-            <!--<input id="id_title" type="text" name="title" class="form-control" placeholder="Title" aria-describedby="basic-addon1"></label>-->
-        <!--</p>-->
-        <!--</br>-->
-        <!--<p>-->
-            <!--<h7><strong>Text</strong></h7>-->
-            <!--<label for="id_text">-->
-            <!--<textarea id="id_text" name="text" class="form-control" rows="10"></textarea></label>-->
-        <!--</p>-->
-        <!--</br>-->
-        <!--<p>-->
-            <!--<h7><strong>Category</strong></h7>-->
-            <!--<label for="id_category">-->
-            <!--<select id="id_category" name="category" class="form-control">-->
-                <!--{% for c in categorys %}-->
-                <!--<option>{{ c }}</option>-->
-                <!--{% endfor %}-->
-            <!--</select></label>-->
-        <!--</p>-->
-        <!--</br>-->
-        <!--<p>-->
-            <!--<h7><strong>Tags</strong></h禅道7>-->
-            <!--</br>-->
-            <!--{% for t in tags %}-->
-            <!--<label for="id_tags" class="checkbox-inline">-->
-            <!--<input name="tags" type="checkbox" id="id_tags" value="option1"> {{ t }}-->
-            <!--</label>-->
-            <!--{% endfor %}-->
-        <!--</p>-->
-        <!--</br>-->
-        <button type="submit" class="save btn btn-large btn-block btn-primary ">Save</button>
-    </form>
+<h5 align="center">Edit</h5>
+<form method="POST" class="post-form" name="new">{% csrf_token %}
+    {{ form.as_p }}
+    <!--<p class="input-group">-->
+    <!--<h7><strong>Title</strong></h7>-->
+    <!--<label for="id_title">-->
+    <!--<input id="id_title" type="text" name="title" class="form-control" placeholder="Title" aria-describedby="basic-addon1"></label>-->
+    <!--</p>-->
+    <!--</br>-->
+    <!--<p>-->
+    <!--<h7><strong>Text</strong></h7>-->
+    <!--<label for="id_text">-->
+    <!--<textarea id="id_text" name="text" class="form-control" rows="10"></textarea></label>-->
+    <!--</p>-->
+    <!--</br>-->
+    <!--<p>-->
+    <!--<h7><strong>Category</strong></h7>-->
+    <!--<label for="id_category">-->
+    <!--<select id="id_category" name="category" class="form-control">-->
+    <!--{% for c in categorys %}-->
+    <!--<option>{{ c }}</option>-->
+    <!--{% endfor %}-->
+    <!--</select></label>-->
+    <!--</p>-->
+    <!--</br>-->
+    <!--<p>-->
+    <!--<h7><strong>Tags</strong></h禅道7>-->
+    <!--</br>-->
+    <!--{% for t in tags %}-->
+    <!--<label for="id_tags" class="checkbox-inline">-->
+    <!--<input name="tags" type="checkbox" id="id_tags" value="option1"> {{ t }}-->
+    <!--</label>-->
+    <!--{% endfor %}-->
+    <!--</p>-->
+    <!--</br>-->
+    <button type="submit" class="save btn btn-large btn-block btn-primary ">Save</button>
+</form>
 {% endblock %}
