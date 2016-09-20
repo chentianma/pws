@@ -35,25 +35,23 @@ def blogArticle(request, pk):
 
 @login_required
 def blogNew(request):
-    categorys = Category.objects.filter()
-    tags = Tag.objects.filter()
     if request.method == 'POST':
         form = postForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            print(post)
             post.author = request.user
             post.save()
+            re_get = Article.objects.get(id=post.pk)
+            re_get.publish()
+            print(re_get.title)
             return redirect('article', pk=post.pk)
     else:
         form = postForm()
-    return render(request, 'blog/blognew.html', {'form': form, 'categorys': categorys, 'tags': tags})
+    return render(request, 'blog/blognew.html', {'form': form})
 
 
 @login_required
 def blogEdit(request, pk):
-    categorys = Category.objects.filter()
-    tags = Tag.objects.filter()
     post = get_object_or_404(Article, pk=pk)
     if request.method == 'POST':
         form = postForm(request.POST, instance=post)
@@ -65,4 +63,4 @@ def blogEdit(request, pk):
             return redirect('article', pk=post.pk)
     else:
         form = postForm(instance=post)
-    return render(request, 'blog/blognew.html', {'form': form, 'categorys': categorys, 'tags': tags})
+    return render(request, 'blog/blognew.html', {'form': form})

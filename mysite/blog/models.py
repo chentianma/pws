@@ -39,4 +39,3 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
-               # self.author, self.text, self.created_date, self.publish_date, self.tags, self.category
