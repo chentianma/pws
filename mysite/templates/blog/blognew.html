@@ -2,19 +2,28 @@
 {% load staticfiles %}
 
 
-
 {% block head %}
 <script src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
 <script>
     tinymce.init({
-        selector: 'textarea'
+        selector: 'textarea',
+        height: 300,
+        plugins: [
+            'codesample advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+            'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+            'save table contextmenu directionality emoticons template paste textcolor'
+        ],
+        toolbar: 'insertfile undo redo | fontsizeselect | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons codesample removeformat ',
+        fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+        font_formats: 'Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace;AkrutiKndPadmini=Akpdmi-n',
+        code_dialog_height: 200
     });
 </script>
 {% endblock %}
 
 
 {% block content %}
-<h5 align="center">Edit</h5>
+<h2 align="center"><strong>Edit</strong></h2>
 <form method="POST" class="post-form" name="new">{% csrf_token %}
     {{ form.as_p }}
     <!--<p class="input-group">-->

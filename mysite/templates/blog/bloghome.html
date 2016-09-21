@@ -10,7 +10,7 @@
 <div class="col-md-8">
     {% if articles %}
     {% for article in articles %}
-    <div class="panel panel-default">
+    <article class="panel panel-default">
         <div class="panel-heading">
             <h4><a href="{% url 'article' pk=article.pk %}">{{ article.title }}</a></h4>
             <div>
@@ -24,16 +24,13 @@
             </div>
         </div>
         <div class="panel-body">
-            <P>
-                {% autoescape off %}
-                {{ article.text|linebreaks|truncatechars:150 }}
-                {% endautoescape%}
-            </P>
+            <p>{% autoescape off %}{{ article.description|linebreaks }}{% endautoescape %}</p>
         </div>
-    </div>
+    </article>
     {% endfor %}
     {% endif %}
 </div>
+
 <!--侧边栏-->
 <div class="col-md-4">
     </br>
@@ -52,16 +49,6 @@
                     <span class="label label-danger">Danger</span>
                     <span class="label label-default">Default</span>
                     <span class="label label-primary">Primary</span>
-                    <span class="label label-success">Success</span>
-                    <span class="label label-info">Info</span>
-                    <span class="label label-warning">Warning</span>
-                    <span class="label label-danger">Danger</span>
-                    <span class="label label-default">Default</span>
-                    <span class="label label-primary">Primary</span>
-                    <span class="label label-success">Success</span>
-                    <span class="label label-info">Info</span>
-                    <span class="label label-warning">Warning</span>
-                    <span class="label label-danger">Danger</span>
                 </div>
             </div>
         </div>

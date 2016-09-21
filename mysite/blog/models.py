@@ -27,6 +27,7 @@ class Article(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
+    description = models.TextField()
     click = models.IntegerField(default=0)
     created_date = models.DateTimeField(default=timezone.now)
     publish_date = models.DateTimeField(blank=True, null=True)
