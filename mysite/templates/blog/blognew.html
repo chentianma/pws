@@ -23,6 +23,7 @@
 
 
 {% block content %}
+<div class="col-md-9 col-md-offset-1">
 <h2 align="center"><strong>Edit</strong></h2>
 <form method="POST" class="post-form" name="new">{% csrf_token %}
     {{ form.as_p }}
@@ -60,4 +61,5 @@
     <!--</br>-->
     <button type="submit" class="save btn btn-large btn-block btn-primary ">Save</button>
 </form>
+    </div>
 {% endblock %}
