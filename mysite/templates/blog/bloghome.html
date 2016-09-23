@@ -7,21 +7,17 @@
 {% block content %}
 <!--文章展示版块-->
 
-<div class="col-md-8">
+<div class="col-md-7 col-md-offset-1">
     {% if articles %}
     {% for article in articles %}
-    <article class="panel panel-default">
-        <div class="panel-heading">
+    <article>
+        <div class="page-header">
             <h4><a href="{% url 'article' pk=article.pk %}">{{ article.title }}</a></h4>
-            <div>
-                <h7 class="panel-title">
-                    <small>分类：{{ article.category }}</small>
-                </h7>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <h7 class="panel-title">
-                    <small>发表时间：{{ article.publish_date }}</small>
-                </h7>
-            </div>
+        </div>
+        <div>
+            <h7><small>分类：{{ article.category }}</small></h7>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <h7><small>发表时间：{{ article.publish_date }}</small></h7>
         </div>
         <div class="panel-body">
             <p>{% autoescape off %}{{ article.description|linebreaks }}{% endautoescape %}</p>
