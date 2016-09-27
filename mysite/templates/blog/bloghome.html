@@ -7,7 +7,7 @@
 
 {% block content %}
 <!-- Slide show -->
-<div class="col-md-7 col-md-offset-1">
+<div class="col-md-8">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -51,7 +51,7 @@
     {% for article in articles %}
     <article>
         <div class="page-header">
-            <h4><a href="{% url 'article' pk=article.pk %}">{{ article.title }}</a></h4>
+            <h4><a href="{% url 'article' pk=article.pk %}"><strong>{{ article.title }}</strong></a></h4>
         </div>
         <div>
             <h7><small>分类：{{ article.category }}</small></h7>
