@@ -7,14 +7,15 @@
 
 
 {% block content %}
-
+<div class="row">
+    <div class="col-md-3 col-md-offset-4">
     {% if form.errors %}
     <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
-
+    <br>
     <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <table>
+    <table align="center">
     <tr>
         <td>{{ form.username.label_tag }}</td>
         <td>{{ form.username }}</td>
@@ -24,8 +25,25 @@
         <td>{{ form.password }}</td>
     </tr>
     </table>
-
-    <input type="submit" value="login" />
+    <br>
+    <input type="submit" class="save btn btn-large btn-block btn-primary" value="Login" maxlength=""/>
     <input type="hidden" name="next" value="{{ next }}" />
     </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block script_links %}
+<script>
+    $(document).ready(function () {
+        $("#id_username").attr({
+                "class": "form-control",
+                "placehodler": "UserName"
+        });
+        $("#id_password").attr({
+                "class": "form-control",
+                "placehodler": "PassWord"
+        });
+    });
+</script>
 {% endblock %}

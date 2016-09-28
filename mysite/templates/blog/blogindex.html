@@ -6,9 +6,9 @@
 
 
 {% block content %}
-<div class="col-md-8" style="background-color: #ffffff">
+<div class="col-md-8">
 {% for c in categorys %}
-    <h2>{{ c }}</h2>
+    <h3 style="font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace">{{ c }}</h3>
     <br>
     {% for a in article %}
         {% if a.category == c %}
