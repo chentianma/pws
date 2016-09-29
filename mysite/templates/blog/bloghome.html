@@ -51,7 +51,7 @@
     {% for article in articles %}
     <div>
         <div class="page-header">
-            <h4><a href="{% url 'article' pk=article.pk %}"><strong>{{ article.title }}</strong></a></h4>
+            <h3><a href="{% url 'article' pk=article.pk %}"><strong>{{ article.title }}</strong></a></h3>
         </div>
         <div>
             <h7><small><strong>Category：</strong>{{ article.category }}</small></h7>
