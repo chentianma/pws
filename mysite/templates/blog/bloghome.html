@@ -12,19 +12,43 @@
     <!--文章展示版块-->
     {% if articles %}
     {% for article in articles %}
-    <div>
-        <div class="page-header">
-            <h3><a href="{% url 'article' pk=article.pk %}"><strong>{{ article.title }}</strong></a></h3>
+    <!--<div>-->
+    <!--<div class="page-header">-->
+    <!--<h3><a href="{% url 'article' pk=article.pk %}"><strong>{{ article.title }}</strong></a></h3>-->
+    <!--</div>-->
+    <!--<div>-->
+    <!--<h7><small><strong>Category：</strong>{{ article.category }}</small></h7>-->
+    <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
+    <!--<h7><small><strong>Published Time：</strong>{{ article.publish_date }}</small></h7>-->
+    <!--</div>-->
+    <!--<div class="panel-body">-->
+    <!--<p>{% autoescape off %}{{ article.description|linebreaks }}{% endautoescape %}</p>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <div class="media">
+        <a class="media-left" href="#">
+            <img src="{% static 'img/homeimg/pic01.jpg' %}" class="img-rounded" alt="...">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading"><a href="{% url 'article' pk=article.pk %}"><strong>{{ article.title }}</strong></a></h4>
+            <br><br>
+            <h7>
+                <small><strong>Category：</strong>{{ article.category }}</small>
+            </h7>
+            <br>
+            <h7>
+                <small><strong>Published Time：</strong>{{ article.publish_date }}</small>
+            </h7>
         </div>
         <div>
-            <h7><small><strong>Category：</strong>{{ article.category }}</small></h7>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <h7><small><strong>Published Time：</strong>{{ article.publish_date }}</small></h7>
+            <hr>
+            <p><strong>Describtions: </strong>{% autoescape off %}{{ article.description|linebreaks }}{% endautoescape %}</p>
+            <hr style="border-top-width: 5px">
         </div>
-        <div class="panel-body">
-            <p>{% autoescape off %}{{ article.description|linebreaks }}{% endautoescape %}</p>
-        </div>
+        <br>
     </div>
+
     {% endfor %}
     {% endif %}
 </div>
